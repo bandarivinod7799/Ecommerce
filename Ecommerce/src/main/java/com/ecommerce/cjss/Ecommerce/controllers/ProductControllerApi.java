@@ -63,12 +63,7 @@ public class ProductControllerApi {
     public String orderReturn(@PathVariable Integer pId) {
 
 
-        try {
-           String s = returnService.returnProduct(pId);
-            return s;
-        } catch (OrderNotFoundException e) {
-
-           throw new OrderNotFoundException("Order ID Not Found");
-        }
+        String s = returnService.returnProduct(pId);
+        return s;
     }
 }
