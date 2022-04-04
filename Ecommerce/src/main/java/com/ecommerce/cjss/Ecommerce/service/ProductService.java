@@ -21,7 +21,6 @@ public class ProductService {
     private ProductsRepository productsRepository;
 
 
-
     @Autowired
     private SKURepository skuRepository;
     @Autowired
@@ -47,7 +46,6 @@ public class ProductService {
 
         productsRepository.save(pEntity);
     }
-
 
 
 }

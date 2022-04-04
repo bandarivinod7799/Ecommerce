@@ -2,7 +2,6 @@ package com.ecommerce.cjss.Ecommerce.controllers;
 
 import com.ecommerce.cjss.Ecommerce.cartmodel.CartModel;
 import com.ecommerce.cjss.Ecommerce.cartmodel.ViewCart;
-import com.ecommerce.cjss.Ecommerce.exceptions.OrderNotFoundException;
 import com.ecommerce.cjss.Ecommerce.inventorymodel.InventoryModel;
 import com.ecommerce.cjss.Ecommerce.productmodel.ProductModel;
 import com.ecommerce.cjss.Ecommerce.service.CartService;
@@ -13,8 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 public class ProductControllerApi {

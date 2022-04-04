@@ -1,6 +1,7 @@
 package com.ecommerce.cjss.Ecommerce.service;
 
 import com.ecommerce.cjss.Ecommerce.ProductRepository.OrderRepository;
+import com.ecommerce.cjss.Ecommerce.exceptions.OrderNotFoundException;
 import com.ecommerce.cjss.Ecommerce.orderEntity.OrderEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,8 +14,15 @@ public class FulfilmentService {
 
 
     public OrderEntity getOderStatus(Integer id) {
-        OrderEntity orderEntity = orderRepository.findById(id).get();
-        return orderEntity;
+
+
+        try {
+            OrderEntity orderEntity = orderRepository.findById(id).get();
+            return orderEntity;
+        } catch (RuntimeException exp) {
+
+            throw new OrderNotFoundException("Order Status Not Found with ID: " + id);
+        }
     }
 
     public OrderEntity updateStatus(Integer pid, String status) {

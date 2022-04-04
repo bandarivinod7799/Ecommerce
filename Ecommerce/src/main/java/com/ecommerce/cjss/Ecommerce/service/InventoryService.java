@@ -16,6 +16,7 @@ public class InventoryService {
     private InventoryRepository inventoryRepository;
     @Autowired
     private SKURepository skuRepository;
+
     public String addQuantity(InventoryModel inventoryModel) {
         Optional<SKUEntity> bySKUId = skuRepository.findById(inventoryModel.getSkuCOde());
         if (bySKUId.isPresent()) {
@@ -32,9 +33,6 @@ public class InventoryService {
 
 
     }
-
-
-
 
 
 }

@@ -1,6 +1,7 @@
 package com.ecommerce.cjss.Ecommerce.orderEntity;
 
 import com.ecommerce.cjss.Ecommerce.orderEntity.OrderEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
@@ -12,7 +13,8 @@ public class OrderListEntity {
     private Double price;
     private Long totalQuantities;
     private String productName;
-    private  Integer skuCode;
+    private Integer skuCode;
+    @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
     private OrderEntity orderEntity;
 

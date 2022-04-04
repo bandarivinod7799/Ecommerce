@@ -51,7 +51,7 @@ public class CartService {
             Long quantity = cartModel.getQuantity();
             total = total + skuEntity.getPrice() * quantity;
             viewCartEntity.setTotalPrice(total);
-// after Adding to cart remaining
+// after Adding to cart remaining quantities
             Long remainingQuantities = byId.getQuantityAvailable() - viewCartEntity.getTotalQuantities();
 
             byId.setSkuCOde(byId.getSkuCOde());
