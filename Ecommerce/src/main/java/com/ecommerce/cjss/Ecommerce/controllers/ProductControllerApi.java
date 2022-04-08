@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ProductControllerApi {
-
-
     @Autowired
     private CartService cartService;
     @Autowired
@@ -27,39 +25,35 @@ public class ProductControllerApi {
     private ReturnService returnService;
 
 
-    @PostMapping("/addProduct")
+    @PostMapping("/add-product")
     public String addProduct(@RequestBody ProductModel model) {
         productService.addProduct(model);
         return "Successfully Added";
     }
 
-    @PostMapping("/addQuantity")
+    @PostMapping("/add-quantity")
     public ResponseEntity<String> addProductQuantity(@RequestBody InventoryModel inventoryModel) {
         String message = inventoryService.addQuantity(inventoryModel);
+        //TODO create Model
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
 
-    @PostMapping("/addToCart")
+    @PostMapping("/add-cart")
     public ResponseEntity<String> addToCart(@RequestBody CartModel cartModel) {
         String s = cartService.addToCart(cartModel);
         return new ResponseEntity<>(s, HttpStatus.OK);
     }
-
-    @GetMapping("/viewCart")
+    @GetMapping("/view-cart")
     public ResponseEntity<ViewCart> viewCart() {
         ViewCart cart = cartService.viewCart();
-        return new ResponseEntity<>(cart, HttpStatus.CREATED);
+        return new ResponseEntity<>(cart, HttpStatus.OK);
     }
-
-    @GetMapping("/placeOrder")
+    @GetMapping("/place-order")
     public String placeOrder() {
         return cartService.placeOrder();
     }
-
     @GetMapping("/orderReturn/{pId}")
     public String orderReturn(@PathVariable Integer pId) {
-
-
         String s = returnService.returnProduct(pId);
         return s;
     }

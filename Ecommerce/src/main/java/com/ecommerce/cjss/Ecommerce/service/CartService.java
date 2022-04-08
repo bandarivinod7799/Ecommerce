@@ -32,7 +32,6 @@ public class CartService {
     private OrderRepository orderRepository;
 
 
-
     public String addToCart(CartModel cartModel) {
         Integer skuCode = cartModel.getSkuCode();
         SKUEntity skuEntity1 = skuRepository.findById(skuCode).get();
@@ -59,18 +58,13 @@ public class CartService {
             inventoryRepository.save(byId);
             viewCartRepository.save(viewCartEntity);
             return "Products are added to cart, View the cart...!!!!";
-
         } else if (byId.getQuantityAvailable() <= 0) {
-
             return "Out of Stack";
         } else if (cartModel.getQuantity() <= 0) {
-
             return "Please Select Some Products";
         }
-
-        return "Out Of Stack";
+        return "Only " + byId.getQuantityAvailable() + " Available ";
     }
-
 
     public ViewCart viewCart() {
 
@@ -86,7 +80,6 @@ public class CartService {
                     addCart.setCid(all.getCid());
                     addCart.setTotalQuantities(all.getTotalQuantities());
                     cartList.add(addCart);
-
                 }
         );
         ViewCart cart = new ViewCart();
@@ -114,9 +107,7 @@ public class CartService {
         orderEntity.setPrice(cartList.getTotalPrice());
         orderEntity.setStatus("RECEIVED");
         orderRepository.save(orderEntity);
-
+        viewCartRepository.deleteAll();
         return "Order Placed";
     }
-
-
 }

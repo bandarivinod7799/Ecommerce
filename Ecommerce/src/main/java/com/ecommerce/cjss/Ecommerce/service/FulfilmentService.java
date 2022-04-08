@@ -12,9 +12,7 @@ public class FulfilmentService {
     @Autowired
     private OrderRepository orderRepository;
 
-
     public OrderEntity getOderStatus(Integer id) {
-
 
         try {
             OrderEntity orderEntity = orderRepository.findById(id).get();

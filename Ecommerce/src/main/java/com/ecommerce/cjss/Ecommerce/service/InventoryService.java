@@ -30,9 +30,5 @@ public class InventoryService {
 
             return "SKU ID Wrong";
         }
-
-
     }
-
-
 }

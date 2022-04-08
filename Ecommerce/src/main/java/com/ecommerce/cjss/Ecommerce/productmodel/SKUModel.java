@@ -2,9 +2,6 @@ package com.ecommerce.cjss.Ecommerce.productmodel;
 
 import com.ecommerce.cjss.Ecommerce.productentity.ProductEntity;
 
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-
 public class SKUModel {
     private Integer skuCode;
     private String size;

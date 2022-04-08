@@ -1,22 +1,8 @@
 package com.ecommerce.cjss.Ecommerce.cartmodel;
 
-import java.util.List;
-
 public class CartModel {
-
-
     private Integer skuCode;
-    private  Long quantity;
-    private  Double price;
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
+    private Long quantity;
 
     public Integer getSkuCode() {
         return skuCode;

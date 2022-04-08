@@ -20,7 +20,6 @@ public class ProductService {
     @Autowired
     private ProductsRepository productsRepository;
 
-
     @Autowired
     private SKURepository skuRepository;
     @Autowired

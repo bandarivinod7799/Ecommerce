@@ -41,9 +41,6 @@ public class ViewCartEntity {
     public void setCid(Integer cid) {
         this.cid = cid;
     }
-
-
-
     public Long getTotalQuantities() {
         return totalQuantities;
     }
